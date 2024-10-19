@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <header className="bg-white shadow-lg fixed top-0 left-0 w-full z-30">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <h2 className="text-xl font-bold">Habit Tracker Application</h2>
+        <h2 className="text-xl font-bold">Online Learning Application</h2>
         <nav>
           <ul className="flex space-x-6">
             {userRole === "admin" && (
