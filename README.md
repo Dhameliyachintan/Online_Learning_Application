@@ -4,6 +4,8 @@
 
 The project is an innovative online learning platform designed to enhance the educational experience for both users and administrators. With a focus on user-friendly navigation and robust management features, the platform caters to a diverse range of learners seeking to expand their knowledge and skills.
 
+Administrators have the capability to add, edit, update, and delete courses easily, ensuring that the course content remains relevant and engaging. Additionally, the platform includes filtering and search functionalities, allowing users to quickly find courses that match their interests. This flexibility promotes continuous improvement of the learning experience, accommodating the evolving needs of users and facilitating efficient course management.
+
 ## Key Objectives:
 
 Empower Learners: Provide users with a comprehensive course catalog that allows for easy browsing, enrollment, and progress tracking, enabling a personalized learning journey.
