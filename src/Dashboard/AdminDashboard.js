@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { toast } from "react-toastify";
 import CourseContext from "../contextapi/CourseProvider";
-import { FaEdit, FaTrash, FaVideo } from 'react-icons/fa';
+import { FaEdit, FaTrash, FaVideo, FaPlus } from 'react-icons/fa';
 
 const AdminDashboard = () => {
   const { courses, deleteCourse } = useContext(CourseContext);
   const navigate = useNavigate(); 
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleDelete = (courseId) => {
     const confirmDelete = window.confirm(
@@ -22,11 +24,38 @@ const AdminDashboard = () => {
     navigate('/editcourse', { state: { course } });
   };
 
+  // const handleAddCourse = () => {
+  //   navigate('/addcourse'); 
+  // };
+
+  const filteredCourses = courses.filter(course => 
+    course.courseName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="mt-[94px] p-4">
       <h1 className="text-2xl font-bold mb-6">Admin Dashboard</h1>
+
+      <div className="mb-4">
+        <input
+          type="text"
+          placeholder="Search courses..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="border p-2 rounded w-full"
+        />
+      </div>
+
+      {/* <button
+        onClick={handleAddCourse}
+        className="mb-4 p-2 bg-green-500 text-white rounded hover:bg-green-600 flex items-center transition-colors duration-200"
+      >
+        <FaPlus className="mr-2" />
+        Add Course
+      </button> */}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {courses.map((course) => (
+        {filteredCourses.map((course) => (
           <div
             key={`${course.id}-${course.courseName}`}
             className="bg-white shadow-xl rounded-lg overflow-hidden transition-transform transform hover:scale-105"
